@@ -15,26 +15,33 @@
 <body>
 	<div class="container">
 
+		<header class="main-header">
+			<h1>The Evolution Of Web Design</h1>
+			<h2>See how websites changed...</h2>
+		</header>
+
 <section class="main">
 	<div class="windy-demo">
+		<h2>Apple.com</h2>
 		<ul id="wi-el" class="wi-container">
-			<li><img src="img/apple/apple2000.png" alt="image1"/></li>
-			<li><img src="img/apple/apple2001.png" alt="image2"/></li>
-			<li><img src="img/apple/apple2003.png" alt="image3"/></li>
-			<li><img src="img/apple/apple2004.png" alt="image4"/></li>
-			<li><img src="img/apple/apple2006.png" alt="image5"/></li>
-			<li><img src="img/apple/apple2007.png" alt="image6"/></li>
-			<li><img src="img/apple/apple2008.png" alt="image7"/></li>
-			<li><img src="img/apple/apple2009.png" alt="image8"/></li>
-			<li><img src="img/apple/apple2010.png" alt="image9"/></li>
-			<li><img src="img/apple/apple2011.png" alt="image10"/></li>
-			<li><img src="img/apple/apple2012.png" alt="image11"/></li>
-			<li><img src="img/apple/apple2013.png" alt="image12"/></li>
+			<li><img src="img/apple/apple2000.jpg" alt="image1"/></li>
+			<li><img src="img/apple/apple2001.jpg" alt="image2"/></li>
+			<li><img src="img/apple/apple2003.jpg" alt="image3"/></li>
+			<li><img src="img/apple/apple2004.jpg" alt="image4"/></li>
+			<li><img src="img/apple/apple2006.jpg" alt="image5"/></li>
+			<li><img src="img/apple/apple2007.jpg" alt="image6"/></li>
+			<li><img src="img/apple/apple2008.jpg" alt="image7"/></li>
+			<li><img src="img/apple/apple2009.jpg" alt="image8"/></li>
+			<li><img src="img/apple/apple2010.jpg" alt="image9"/></li>
+			<li><img src="img/apple/apple2011.jpg" alt="image10"/></li>
+			<li><img src="img/apple/apple2012.jpg" alt="image11"/></li>
+			<li><img src="img/apple/apple2013.jpg" alt="image12"/></li>
 		</ul>
 		<div id="slider"></div>
 	</div>
 	<div class="windy-demo">
-		<ul id="wi-el" class="wi-container">
+		<h2>CSS-Tricks.com</h2>
+		<ul id="wi-el2" class="wi-container">
 			<li><img src="img/css-tricks/css-tricks2008Late.png" alt="image1"/></li>
 			<li><img src="img/css-tricks/css-tricks2009.png" alt="image2"/></li>
 			<li><img src="img/css-tricks/css-tricks2010.png" alt="image3"/></li>
@@ -45,27 +52,57 @@
 			<li><img src="img/css-tricks/css-tricks2012late.png" alt="image8"/></li>
 			<li><img src="img/css-tricks/css-tricks2013.png" alt="image9"/></li>
 		</ul>
-		<div id="slider"></div>
+		<div id="slider2"></div>
 	</div>
 </section>
 
+	<footer class="main-footer">
+		<p>&copy; 2013 Evolution of Web Design</p>
+		<nav>
+			<ul class="footer-nav">
+				<li>
+					<a href="#">About</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+				<li>
+					<a href="#">Imprint</a>
+				</li>
+			</ul>
+		</nav>
+
+	</footer>
+
 </div>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
         <script type="text/javascript" src="js/jquery.windy.js"></script>
         <script type="text/javascript">
 			$(function() {
 
-				var $el = $( '.wi-container' ),
+				var $el = $( '#wi-el' ),
 					windy = $el.windy( {
 						// rotation and translation boundaries for the items transitions
 						boundaries : {
-							rotateX : { min : 40 , max : 90 },
-							rotateY : { min : -15 , max : 15 },
-							rotateZ : { min : -5 , max : 5 },
-							translateX : { min : -200 , max : 200 },
-							translateY : { min : -300 , max : -200 },
-							translateZ : { min : 50 , max : 100 }
+							rotateX : { min : 0 , max : 0 },
+							rotateY : { min : 0 , max : 0 },
+							rotateZ : { min : 0 , max : 0 },
+							translateX : { min : 0 , max : 0 },
+							translateY : { min : 0 , max : 0 },
+							translateZ : { min : 0 , max : 0 }
+						}
+					} );
+				var $el2 = $( '#wi-el2' ),
+					windy2 = $el2.windy( {
+						// rotation and translation boundaries for the items transitions
+						boundaries : {
+							rotateX : { min : 0 , max : 0 },
+							rotateY : { min : 0 , max : 0 },
+							rotateZ : { min : 0 , max : 0 },
+							translateX : { min : 0 , max : 0 },
+							translateY : { min : 0 , max : 0 },
+							translateZ : { min : 0 , max : 0 }
 						}
 					} );
 
@@ -76,6 +113,17 @@
 					slide: function( event, ui ) {
 
 						windy.navigate( ui.value );
+
+					}
+				} );
+
+				$( '#slider2' ).slider( {
+					animate : true,
+					min: 0,
+					max: windy2.getItemsCount() - 1,
+					slide: function( event, ui ) {
+
+						windy2.navigate( ui.value );
 
 					}
 				} );

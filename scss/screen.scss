@@ -5,6 +5,8 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "bits";
+@import "type";
 @import "windy";
 @import "plugins";
 
@@ -12,12 +14,35 @@
 	@include box-sizing(border-box);
 }
 
+html {
+	background: darken(white,5%);
+}
+
 .container {
 	width: 90%;
-	max-width: 1180px;
-	background: red;
+	max-width: 800px;
+	background: darken(white,2%);
 	margin: 0 auto;
-	padding: 0 20px;
+	margin-top: -4em;
+	padding: 5em 20px;
+	@include box-shadow(0 0 30px rgba(black,.1));
+}
+
+.main-header {
+	padding: 0 0 1em;
+	width: 700px;
+	margin: 0 auto;
+	border-bottom: 1px solid darken(white,10%);
+
+	h1 {
+		font-size: 2.5em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		font-size: 1.25em;
+		font-weight: normal;
+	}
 }
 
 .windy-demo {
@@ -25,14 +50,15 @@
 	margin: 2em auto;
 	color: #aaa;
 	display: block;
+	height: auto;
 }
 
 .windy-demo ul.wi-container {
-	box-shadow: 0 1px 1px rgba(0,0,0,1);
+	@include box-shadow(0 0 5px rgba(black,.1));
 }
 
-.windy-demo h4 {
-	padding: 0 10px;
+.windy-demo h2 {
+	padding: 2em 30px 1em;
 	line-height: 26px;
 	margin: 0;
 }
@@ -47,17 +73,18 @@
 	user-select: none;
 }
 
-#slider {
+#slider, #slider2 {
 	width: 200px;
-	margin: 50px auto 0;
+	margin: 10px auto 20px;
 	border: none;
-	background: #b0d4e3;
-	@include border-radius(10px);
-	@include box-shadow(0 1px 1px rgba(255,255,255,0.8), inset 0 1px 2px rgba(0,0,0,0.3), 0 0 0 8px rgba(0,0,0,0.1), 0 1px 1px 8px rgba(255, 255, 255, 0.8));
-	@include background-image(linear-gradient(#b0d4e3 0%, #88bacf 100%));
+	background: lighten(black,70%);
+	@include border-radius(5px);
+	@include box-shadow(none);
+	@include background-image(linear-gradient(lighten(black,70%), lighten(black,50%)));
+	@include box-shadow(0 0 5px rgba(black,.8) inset);
 }
 
-#slider a {
+#slider a, #slider2 a {
 	outline: none;
 	cursor: pointer;
 	border: none;
@@ -69,4 +96,31 @@
 img {
 	width: 100%;
 	height: auto;
+}
+
+.main-footer {
+	@extend .main-header;
+	border-bottom: none;
+	border-top: 1px solid darken(white,10%);
+	overflow: hidden;
+	padding-top: 2em;
+	margin-top: 7em;
+
+	p {
+		float: left;
+	}
+}
+
+.footer-nav {
+	float: right;
+	list-style: none;
+
+	li {
+		float: left;
+		padding-right: 1em;
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
 }
